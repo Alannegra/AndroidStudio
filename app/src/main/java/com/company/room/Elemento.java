@@ -13,12 +13,14 @@ public class Elemento {
     float valoracion;
     int vida;
     int ataque;
+    int velocidad;
 
     /*public Elemento(String nombre, String descripcion, Integer vida, Integer ataque ) {*/
-    public Elemento(String nombre, Integer vida, Integer ataque ) {
+    public Elemento(String nombre, Integer vida, Integer ataque, Integer velocidad ) {
         this.nombre = nombre;
         /*this.descripcion = descripcion;*/
         this.vida = vida;
         this.ataque = ataque;
+        this.velocidad = velocidad;
     }
 }

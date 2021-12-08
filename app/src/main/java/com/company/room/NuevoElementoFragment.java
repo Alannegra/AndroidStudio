@@ -28,6 +28,7 @@ public class NuevoElementoFragment extends Fragment {
     int contadorPuntos = 15;
     int contadorVida = 0;
     int contadorAtaque = 0;
+    int contadorVelocidad = 0;
 
 
     @Override
@@ -106,6 +107,40 @@ public class NuevoElementoFragment extends Fragment {
             }
         });
 
+        binding.sumar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(contadorPuntos-1 < 0){
+                    binding.velocidad.setText("" + contadorVelocidad);
+                    binding.puntos.setText("" + contadorPuntos);
+                }else{
+                    contadorVelocidad++;
+                    contadorPuntos--;
+                    binding.velocidad.setText("" + contadorVelocidad);
+                    binding.puntos.setText("" + contadorPuntos);
+                }
+
+            }
+        });
+
+        binding.restar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(contadorVelocidad == 0){
+                    binding.velocidad.setText("" + contadorVelocidad);
+                    binding.puntos.setText("" + contadorPuntos);
+                }else{
+                    contadorVelocidad--;
+                    contadorPuntos++;
+                    binding.velocidad.setText("" + contadorVelocidad);
+                    binding.puntos.setText("" + contadorPuntos);
+                }
+
+            }
+        });
+
         binding.crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,10 +152,11 @@ public class NuevoElementoFragment extends Fragment {
                // int vida = Integer.parseInt(binding.vida.getText().toString());
                 int vida = contadorVida;
                 int ataque = contadorAtaque;
+                int velocidad = contadorVelocidad;
                // int vida = Integer.parseInt(binding.vida.getText().toString());
                //int ataque = Integer.parseInt(binding.ataque.getText().toString());
 
-                elementosViewModel.insertar(new Elemento(nombre, vida, ataque));
+                elementosViewModel.insertar(new Elemento(nombre, vida, ataque , velocidad));
 
                /* elementosViewModel.insertar(new Elemento(nombre, descripcion, vida, ataque));*/
 

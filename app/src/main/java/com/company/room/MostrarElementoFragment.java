@@ -36,6 +36,7 @@ public class MostrarElementoFragment extends Fragment {
                /* binding.descripcion.setText(elemento.descripcion);*/
                 binding.vida.setText("" + elemento.vida);
                 binding.ataque.setText("" + elemento.ataque);
+                binding.velocidad.setText("" + elemento.velocidad);
 
                 binding.valoracion.setRating(elemento.valoracion);
 

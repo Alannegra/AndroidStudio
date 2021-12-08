@@ -28,7 +28,7 @@ public abstract class ElementosBaseDeDatos extends RoomDatabase {
             synchronized (ElementosBaseDeDatos.class) {
                 if (INSTANCIA == null) {
                     INSTANCIA = Room.databaseBuilder(context,
-                            ElementosBaseDeDatos.class, "elementos3.db")
+                            ElementosBaseDeDatos.class, "elementos4.db")
                             .fallbackToDestructiveMigration()
                             .addCallback(new Callback() {
                                 @Override

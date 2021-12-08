@@ -45,6 +45,8 @@ public class ElementosViewModel extends AndroidViewModel {
         return elementosRepositorio.masValorados();
     }
 
+
+
     LiveData<List<Elemento>> buscar(){
         return resultadoBusqueda;
     }
@@ -60,6 +62,8 @@ public class ElementosViewModel extends AndroidViewModel {
     void actualizar(Elemento elemento, float valoracion){
         elementosRepositorio.actualizar(elemento, valoracion);
     }
+
+
 
 
     void seleccionar(Elemento elemento){
