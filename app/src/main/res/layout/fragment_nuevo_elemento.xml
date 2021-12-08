@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".NuevoElementoFragment">
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:textSize="32sp"/>
+
+    <!--<EditText
+        android:id="@+id/descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:textSize="32sp"
+        />-->
+
+    <Button
+        android:id="@+id/crear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear"
+        android:textSize="32sp"/>
+
+    <TextView
+        android:id="@+id/puntos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:text="15"
+        tools:text="@sample/elementos.json/elementos/puntos"
+        />
+    <!--android:layout_margin="10dp"-->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="10dp"
+            android:text="HP"
+            />
+
+        <Button
+            android:id="@+id/sumar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Sumar"
+            />
+
+        <Button
+            android:id="@+id/restar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restar"
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:id="@+id/vida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="10dp"
+            android:text="0"
+            tools:text="@sample/elementos.json/elementos/vida"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/atk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="10dp"
+            android:text="ATK"
+            />
+
+        <Button
+            android:id="@+id/sumar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Sumar"
+            />
+        <!-- android:textSize="1sp"-->
+
+        <Button
+            android:id="@+id/restar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restar"
+            android:layout_margin="10dp"
+            />
+        <!--android:textSize="32sp"-->
+        <TextView
+            android:id="@+id/ataque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="10dp"
+            android:text="0"
+            tools:text="@sample/elementos.json/elementos/ataque"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/spd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="10dp"
+            android:text="SPD"
+            />
+
+        <Button
+            android:id="@+id/sumar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Sumar"
+            />
+
+        <Button
+            android:id="@+id/restar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restar"
+            android:layout_margin="10dp"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
