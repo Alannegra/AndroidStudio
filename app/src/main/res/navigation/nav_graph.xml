@@ -38,4 +38,9 @@
         android:name="com.company.room.MostrarElementoFragment"
         android:label="fragment_mostrar_elemento"
         tools:layout="@layout/fragment_mostrar_elemento" />
+    <fragment
+        android:id="@+id/fighterFragment"
+        android:name="com.company.room.FighterFragment"
+        android:label="fragment_fighter"
+        tools:layout="@layout/fragment_fighter" />
 </navigation>

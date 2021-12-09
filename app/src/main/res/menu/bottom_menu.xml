@@ -6,7 +6,7 @@
         android:title="Elementos" />
 
     <item
-        android:id="@+id/recyclerValoracionFragment"
+        android:id="@+id/fighterFragment"
         android:icon="@android:drawable/btn_star_big_on"
         android:title="Valoración" />
 
