@@ -38,6 +38,7 @@ public class ElementosViewModel extends AndroidViewModel {
 
 
     LiveData<List<Elemento>> obtener(){
+
         return elementosRepositorio.obtener();
     }
 

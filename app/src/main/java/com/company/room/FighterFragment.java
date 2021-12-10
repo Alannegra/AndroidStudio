@@ -8,16 +8,20 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.company.room.databinding.FragmentFighterBinding;
 
+import java.util.List;
+
 
 public class FighterFragment extends Fragment {
 
     private FragmentFighterBinding binding;
+    private List<Elemento> listaGuardada;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,16 +44,33 @@ public class FighterFragment extends Fragment {
 
         ElementosViewModel elementosViewModel = new ViewModelProvider(requireActivity()).get(ElementosViewModel.class);
 
-        elementosViewModel.seleccionado().observe(getViewLifecycleOwner(), new Observer<Elemento>() {
+        LiveData<List<Elemento>> lista = elementosViewModel.obtener();
+
+        //binding.nombre.setText(lista.getValue().get(0).nombre);
+        //binding.nombre2.setText(lista.getValue().get(1).nombre);
+        elementosViewModel.obtener().observe(getViewLifecycleOwner(), new Observer<List<Elemento>>() {
+
+            @Override
+            public void onChanged(List<Elemento> lista) {
+
+                listaGuardada = lista;
+
+                binding.nombre.setText(listaGuardada.get(0).nombre);
+                binding.nombre2.setText(listaGuardada.get(1).nombre);
+            }
+        });
+
+
+
+        /*elementosViewModel.seleccionar().observe(getViewLifecycleOwner(), new Observer<Elemento>() {
             @Override
             public void onChanged(Elemento elemento) {
 
                 binding.nombre.setText(elemento.nombre);
                 binding.nombre2.setText(elemento.nombre);
-                binding.nombre3.setText(elemento.nombre);
 
             }
-        });
+        });*/
 
 
         entrenadorViewModel.obtenerRepeticion().observe(getViewLifecycleOwner(), new Observer<String>() {

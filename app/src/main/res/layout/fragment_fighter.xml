@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:gravity="center"
     tools:context=".FighterFragment">
 
     <ImageView
         android:id="@+id/ejercicio"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="2dp"
+        android:layout_height="2dp" />
 
     <TextView
         android:id="@+id/nombre"
@@ -16,6 +19,14 @@
         android:layout_height="wrap_content"
         android:textSize="48sp"
         tools:text="@sample/elementos.json/elementos/nombre"/>
+
+    <TextView
+        android:id="@+id/nombre2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        tools:text="@sample/elementos.json/elementos/nombre"/>
+
 
     <TextView
         android:id="@+id/repeticion"
@@ -35,37 +46,12 @@
         android:gravity="center"
         android:textSize="48sp"/>
 
-    <TextView
-        android:id="@+id/nombre4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="48sp"
-        tools:text="@sample/elementos.json/elementos/nombre"/>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/nombre3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="48sp"
-            tools:text="@sample/elementos.json/elementos/nombre"/>
-
-        <TextView
-            android:id="@+id/nombre2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="48sp"
-            tools:text="@sample/elementos.json/elementos/nombre"/>
-
-    </LinearLayout>
 
 
 
 
-</FrameLayout>
+
+
+</LinearLayout>
+
+
