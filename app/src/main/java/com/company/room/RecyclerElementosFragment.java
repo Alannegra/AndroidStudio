@@ -102,17 +102,18 @@ public class RecyclerElementosFragment extends Fragment {
             Elemento elemento = elementos.get(position);
 
             holder.binding.nombre.setText(elemento.nombre);
-            holder.binding.valoracion.setRating(elemento.valoracion);
+            holder.binding.shield.setImageResource(elemento.escudo);
+            //holder.binding.valoracion.setRating(elemento.valoracion);
 
 
-            holder.binding.valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            /*holder.binding.valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                 @Override
                 public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                     if(fromUser) {
                         elementosViewModel.actualizar(elemento, rating);
                     }
                 }
-            });
+            });*/
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

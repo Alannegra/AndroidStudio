@@ -33,22 +33,11 @@ public class MostrarElementoFragment extends Fragment {
             @Override
             public void onChanged(Elemento elemento) {
                 binding.nombre.setText(elemento.nombre);
-               /* binding.descripcion.setText(elemento.descripcion);*/
                 binding.vida.setText("" + elemento.vida);
                 binding.ataque.setText("" + elemento.ataque);
                 binding.velocidad.setText("" + elemento.velocidad);
 
-                binding.valoracion.setRating(elemento.valoracion);
 
-
-                binding.valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-                    @Override
-                    public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                        if(fromUser){
-                            elementosViewModel.actualizar(elemento, rating);
-                        }
-                    }
-                });
             }
         });
     }

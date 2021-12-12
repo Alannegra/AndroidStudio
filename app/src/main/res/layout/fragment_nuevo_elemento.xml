@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@drawable/forge"
     tools:context=".NuevoElementoFragment">
 
     <EditText
@@ -12,7 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre"
-        android:textSize="32sp"/>
+        android:textSize="32sp"
+        android:textColorHint="@color/white3"
+        android:textColor="@color/white2"
+        />
 
     <!--<EditText
         android:id="@+id/descripcion"
@@ -36,6 +40,7 @@
         android:textSize="24sp"
         android:gravity="center"
         android:text="15"
+        android:textColor="@color/white2"
         tools:text="@sample/elementos.json/elementos/puntos"
         />
     <!--android:layout_margin="10dp"-->
@@ -54,6 +59,7 @@
             android:textSize="24sp"
             android:layout_margin="10dp"
             android:text="HP"
+            android:textColor="@color/white2"
             />
 
         <Button
@@ -80,6 +86,7 @@
             android:layout_margin="10dp"
             android:text="0"
             tools:text="@sample/elementos.json/elementos/vida"
+            android:textColor="@color/white2"
             />
 
 
@@ -99,6 +106,7 @@
             android:textSize="24sp"
             android:layout_margin="10dp"
             android:text="ATK"
+            android:textColor="@color/white2"
             />
 
         <Button
@@ -126,6 +134,7 @@
             android:layout_margin="10dp"
             android:text="0"
             tools:text="@sample/elementos.json/elementos/ataque"
+            android:textColor="@color/white2"
             />
 
     </LinearLayout>
@@ -144,6 +153,7 @@
             android:textSize="24sp"
             android:layout_margin="10dp"
             android:text="SPD"
+            android:textColor="@color/white2"
             />
 
         <Button
@@ -170,6 +180,7 @@
             android:layout_margin="10dp"
             android:text="0"
             tools:text="@sample/elementos.json/elementos/velocidad"
+            android:textColor="@color/white2"
             />
 
     </LinearLayout>

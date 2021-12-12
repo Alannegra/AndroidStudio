@@ -146,19 +146,20 @@ public class NuevoElementoFragment extends Fragment {
             public void onClick(View v) {
                 String nombre = binding.nombre.getText().toString();
 
-                /*String descripcion = binding.descripcion.getText().toString();*/
-
-
-               // int vida = Integer.parseInt(binding.vida.getText().toString());
                 int vida = contadorVida;
                 int ataque = contadorAtaque;
                 int velocidad = contadorVelocidad;
-               // int vida = Integer.parseInt(binding.vida.getText().toString());
-               //int ataque = Integer.parseInt(binding.ataque.getText().toString());
 
-                elementosViewModel.insertar(new Elemento(nombre, vida, ataque , velocidad));
+                if(vida > ataque && vida > velocidad){
+                    elementosViewModel.insertar(new Elemento(nombre, vida, ataque , velocidad, R.drawable.guerrero));
+                }else if(ataque > vida && ataque > velocidad){
+                    elementosViewModel.insertar(new Elemento(nombre, vida, ataque , velocidad, R.drawable.warlock));
+                }else if(velocidad > ataque && velocidad > vida){
+                    elementosViewModel.insertar(new Elemento(nombre, vida, ataque , velocidad, R.drawable.picaro));
+                }else{
+                    elementosViewModel.insertar(new Elemento(nombre, vida, ataque , velocidad, R.drawable.chaman));
+                }
 
-               /* elementosViewModel.insertar(new Elemento(nombre, descripcion, vida, ataque));*/
 
                 navController.popBackStack();
             }

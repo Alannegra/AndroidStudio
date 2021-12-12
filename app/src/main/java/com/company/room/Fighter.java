@@ -1,5 +1,4 @@
 package com.company.room;
-import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -8,13 +7,15 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 import androidx.lifecycle.LiveData;
 
-public class Fighter {
+public class Fighter extends RecyclerElementosFragment{
+
+
 
     interface FighterListener {
         void cuandoDeLaOrden(String orden);
     }
 
-    Random random = new Random();
+
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     ScheduledFuture<?> entrenando;
 
@@ -22,16 +23,21 @@ public class Fighter {
         if (entrenando == null || entrenando.isCancelled()) {
             entrenando = scheduler.scheduleAtFixedRate(new Runnable() {
                 int ejercicio;
-                int repeticiones = -1;
+                int repeticiones = 5;
 
                 @Override
                 public void run() {
-                    if (repeticiones < 0) {
-                        repeticiones = random.nextInt(3) + 3;
-                        ejercicio = random.nextInt(5)+1;
+                    if (repeticiones < -1) {
+                        repeticiones = 5;
+                        ejercicio++ ;
                     }
-                    entrenadorListener.cuandoDeLaOrden("EJERCICIO" + ejercicio + ":" + (repeticiones == 0 ? "CAMBIO" : repeticiones));
+                    entrenadorListener.cuandoDeLaOrden("" + (repeticiones <= 0 ? "CAMBIO" : repeticiones) );
                     repeticiones--;
+
+                    if(ejercicio == 5){
+                        ejercicio = 0;
+                    }
+
                 }
             }, 0, 1, SECONDS);
         }
@@ -42,6 +48,7 @@ public class Fighter {
             entrenando.cancel(true);
         }
     }
+
     LiveData<String> ordenLiveData = new LiveData<String>() {
         @Override
         protected void onActive() {

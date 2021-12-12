@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/recyclerElementosFragment"
-        android:icon="@android:drawable/ic_input_get"
-        android:title="Elementos" />
+        android:icon="@drawable/iconsmortal"
+        android:title="Elementos"
+        />
 
     <item
         android:id="@+id/fighterFragment"
-        android:icon="@android:drawable/btn_star_big_on"
-        android:title="Valoración" />
+        android:icon="@drawable/iconfight"
+        android:title="Valoración"
+        />
 
-    <item
+   <!-- <item
         android:id="@+id/recyclerBuscarFragment"
         android:icon="@android:drawable/ic_menu_search"
-        android:title="Buscar" />
+        android:title="Buscar" />-->
 
 </menu>

@@ -22,14 +22,6 @@ public class ElementosRepositorio {
         return elementosDao.obtener();
     }
 
-    LiveData<List<Elemento>> masValorados() {
-        return elementosDao.masValorados();
-    }
-
-    LiveData<List<Elemento>> buscar(String d) {
-        return elementosDao.buscar(d);
-    }
-
 
     void insertar(Elemento elemento){
         executor.execute(new Runnable() {
@@ -49,13 +41,13 @@ public class ElementosRepositorio {
         });
     }
 
-    public void actualizar(Elemento elemento, float valoracion) {
+    /*public void actualizar(Elemento elemento) {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                elemento.valoracion = valoracion;
+                //elemento.valoracion = valoracion;
                 elementosDao.actualizar(elemento);
             }
         });
-    }
+    }*/
 }

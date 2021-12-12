@@ -9,18 +9,15 @@ public class Elemento {
     int id;
 
     String nombre;
-    /*String descripcion;*/
-    float valoracion;
-    int vida;
-    int ataque;
-    int velocidad;
 
-    /*public Elemento(String nombre, String descripcion, Integer vida, Integer ataque ) {*/
-    public Elemento(String nombre, Integer vida, Integer ataque, Integer velocidad ) {
+
+    int vida,ataque,velocidad,escudo;
+
+    public Elemento(String nombre, Integer vida, Integer ataque, Integer velocidad, Integer escudo ) {
         this.nombre = nombre;
-        /*this.descripcion = descripcion;*/
         this.vida = vida;
         this.ataque = ataque;
         this.velocidad = velocidad;
+        this.escudo = escudo;
     }
 }

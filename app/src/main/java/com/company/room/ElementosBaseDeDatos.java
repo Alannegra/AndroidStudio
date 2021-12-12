@@ -28,7 +28,7 @@ public abstract class ElementosBaseDeDatos extends RoomDatabase {
             synchronized (ElementosBaseDeDatos.class) {
                 if (INSTANCIA == null) {
                     INSTANCIA = Room.databaseBuilder(context,
-                            ElementosBaseDeDatos.class, "elementos4.db")
+                            ElementosBaseDeDatos.class, "elementos7.db")
                             .fallbackToDestructiveMigration()
                             .addCallback(new Callback() {
                                 @Override
@@ -57,10 +57,7 @@ public abstract class ElementosBaseDeDatos extends RoomDatabase {
         @Delete
         void eliminar(Elemento elemento);
 
-        @Query("SELECT * FROM Elemento ORDER BY valoracion DESC")
-        LiveData<List<Elemento>> masValorados();
 
-        @Query("SELECT * FROM Elemento WHERE nombre LIKE '%' || :d || '%'")
-        LiveData<List<Elemento>> buscar(String d);
+
     }
 }

@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -18,10 +17,10 @@ import com.company.room.databinding.FragmentFighterBinding;
 import java.util.List;
 
 
-public class FighterFragment extends Fragment {
+public class FighterFragment extends Fragment  {
 
     private FragmentFighterBinding binding;
-    private List<Elemento> listaGuardada;
+    private int changed = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,64 +31,96 @@ public class FighterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        FighterViewModel entrenadorViewModel = new ViewModelProvider(this).get(FighterViewModel.class);
-
-        entrenadorViewModel.obtenerEjercicio().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer ejercicio) {
-                Glide.with(FighterFragment.this).load(ejercicio).into(binding.ejercicio);
-            }
-        });
-
-
         ElementosViewModel elementosViewModel = new ViewModelProvider(requireActivity()).get(ElementosViewModel.class);
 
-        LiveData<List<Elemento>> lista = elementosViewModel.obtener();
+        FighterViewModel entrenadorViewModel = new ViewModelProvider(this).get(FighterViewModel.class);
 
-        //binding.nombre.setText(lista.getValue().get(0).nombre);
-        //binding.nombre2.setText(lista.getValue().get(1).nombre);
+
         elementosViewModel.obtener().observe(getViewLifecycleOwner(), new Observer<List<Elemento>>() {
 
             @Override
             public void onChanged(List<Elemento> lista) {
 
-                listaGuardada = lista;
 
-                binding.nombre.setText(listaGuardada.get(0).nombre);
-                binding.nombre2.setText(listaGuardada.get(1).nombre);
+                if(lista.size() >= 2){
+
+                    binding.nombre.setText(lista.get(changed).nombre);
+                    binding.nombre2.setText(lista.get(changed+1).nombre);
+
+                    Elemento luchador1 = lista.get(0);
+
+                    Elemento luchador2 = lista.get(1);
+
+
+                    int bpmaokai = 0;
+                    int bpsion = 0;
+
+                    if(luchador1.vida > luchador2.velocidad){
+                        bpmaokai += luchador1.vida - luchador2.velocidad;
+                    }
+                    if(luchador1.ataque > luchador2.ataque){
+                        bpmaokai += luchador1.ataque - luchador2.ataque;
+                    }
+                    if(luchador1.velocidad > luchador2.ataque){
+                        bpmaokai += luchador1.velocidad - luchador2.ataque;
+                    }
+
+                    if(luchador2.vida > luchador1.velocidad){
+                        bpsion += luchador2.vida - luchador1.velocidad;
+                    }
+                    if(luchador2.ataque > luchador1.vida){
+                        bpsion += luchador2.ataque - luchador1.vida;
+                    }
+                    if(luchador2.velocidad > luchador1.ataque){
+                        bpsion += luchador2.velocidad - luchador1.ataque;
+                    }
+
+                    if(bpmaokai == bpsion){
+                        System.out.println("DRAW");
+                        System.out.println("bpmaokai: " + bpmaokai);
+                        System.out.println("bpsion: " + bpsion);
+                        binding.cambio.setText("EMPATE");
+                    }
+
+                    if(bpmaokai > bpsion){
+                        System.out.println("MAOKAI WINS " + bpmaokai);
+                        binding.cambio.setText(luchador1.nombre + " Wins");
+                    }
+                    if(bpmaokai < bpsion){
+                        System.out.println("SION WINS " + bpsion);
+                        binding.cambio.setText(luchador2.nombre + " Wins");
+                    }
+                }
+
             }
         });
 
 
-
-        /*elementosViewModel.seleccionar().observe(getViewLifecycleOwner(), new Observer<Elemento>() {
-            @Override
-            public void onChanged(Elemento elemento) {
-
-                binding.nombre.setText(elemento.nombre);
-                binding.nombre2.setText(elemento.nombre);
-
-            }
-        });*/
 
 
         entrenadorViewModel.obtenerRepeticion().observe(getViewLifecycleOwner(), new Observer<String>() {
 
             @Override
             public void onChanged(String repeticion) {
-                if(repeticion.equals("¡SE ACABO!")){
+
+                if(repeticion.equals("CAMBIO")){
                     binding.cambio.setVisibility(View.VISIBLE);
-
-
-
+                    binding.repeticion.setVisibility(View.GONE);
+                    binding.nombre.setVisibility(View.GONE);
+                    binding.nombre2.setVisibility(View.GONE);
                 } else {
+                    binding.nombre.setVisibility(View.VISIBLE);
+                    binding.nombre2.setVisibility(View.VISIBLE);
                     binding.cambio.setVisibility(View.GONE);
+                    binding.repeticion.setVisibility(View.VISIBLE);
+                    binding.repeticion.setText(repeticion);
+                    
                 }
-                binding.repeticion.setText(repeticion);
 
 
             }
         });
+
 
 
     }

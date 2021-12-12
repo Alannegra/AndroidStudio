@@ -1,113 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MostrarElementoFragment">
+    android:layout_weight="1"
+    android:gravity="center"
+    tools:context=".FighterFragment"
+    android:background="@drawable/diamond">
+
 
     <TextView
         android:id="@+id/nombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="48sp"
-        tools:text="@sample/elementos.json/elementos/nombre"/>
-    <RatingBar
-        android:id="@+id/valoracion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:numStars="5"
-        tools:rating="@sample/elementos.json/elementos/valoracion"/>
+        android:textSize="48sp"
+        tools:text="@sample/elementos.json/elementos/nombre"
+        android:textColor="@color/white2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/hp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/shield"
 
-    <!--<TextView
-        android:id="@+id/descripcion"
-        android:layout_width="match_parent"
+        />
+
+    <ImageView
+        android:id="@+id/shield"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/warlock"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/nombre"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/vida" />
+
+    <TextView
+        android:id="@+id/hp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        tools:text="@sample/elementos.json/elementos/descripcion"/>-->
+        android:layout_margin="10dp"
+        android:text="Health points"
+        android:textColor="@color/white2"
+        app:layout_constraintTop_toBottomOf="@+id/nombre"
+        app:layout_constraintRight_toLeftOf="@+id/vida"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/atk"
+        />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/hp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:layout_margin="10dp"
-            android:text="Health points"
-            />
-
-        <TextView
-            android:id="@+id/vida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:layout_margin="10dp"
-            tools:text="@sample/elementos.json/elementos/vida"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/atk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:layout_margin="10dp"
-            android:text="Attack"
-            />
-
-        <TextView
-            android:id="@+id/ataque"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:layout_margin="10dp"
-            tools:text="@sample/elementos.json/elementos/ataque"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/spd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:layout_margin="10dp"
-            android:text="Speed"
-            />
-
-        <TextView
-            android:id="@+id/velocidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:layout_margin="10dp"
-            tools:text="@sample/elementos.json/elementos/ataque"/>
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/vida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        tools:text="@sample/elementos.json/elementos/vida"
+        android:textColor="@color/white2"
+        app:layout_constraintTop_toBottomOf="@+id/nombre"
+        app:layout_constraintLeft_toRightOf="@+id/hp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ataque"
+        />
 
 
 
 
 
+    <TextView
+        android:id="@+id/atk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:text="Attack"
+        android:textColor="@color/white2"
+        app:layout_constraintTop_toBottomOf="@+id/vida"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/ataque"
+        app:layout_constraintBottom_toTopOf="@+id/spd"
+        />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/ataque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        tools:text="@sample/elementos.json/elementos/ataque"
+        android:textColor="@color/white2"
+        app:layout_constraintTop_toBottomOf="@+id/hp"
+        app:layout_constraintLeft_toRightOf="@+id/atk"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/spd"
+        />
+
+
+
+
+
+    <TextView
+        android:id="@+id/spd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:text="Speed"
+        android:textColor="@color/white2"
+        app:layout_constraintTop_toBottomOf="@+id/atk"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/velocidad"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/velocidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        tools:text="@sample/elementos.json/elementos/ataque"
+        android:textColor="@color/white2"
+        app:layout_constraintTop_toBottomOf="@+id/ataque"
+        app:layout_constraintLeft_toRightOf="@+id/spd"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
